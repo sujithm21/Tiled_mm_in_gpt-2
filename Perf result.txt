@@ -1,0 +1,50 @@
+
+ Performance counter stats for './tiled140':
+
+       1,15,15,323      cache-misses              #    5.889 % of all cache refs      (66.66%)
+      19,55,32,980      cache-references                                              (66.67%)
+      47,42,09,970      L1-dcache-load-misses     #    0.30% of all L1-dcache accesses  (66.67%)
+ 1,55,50,00,85,170      L1-dcache-loads                                               (66.67%)
+          7,54,471      LLC-load-misses           #    2.89% of all LL-cache accesses  (66.66%)
+       2,61,23,566      LLC-loads                                                     (66.66%)
+
+      30.903653993 seconds time elapsed
+
+      30.816852000 seconds user
+       0.004000000 seconds sys
+
+
+sujith@user-ares:~/gpt-2$ perf stat -e cache-misses,cache-references,L1-dcache-load-misses,L1-dcache-loads,LLC-load-misses,LLC-loads ./loop
+Matrix multiplication completed in 28.8483 seconds.
+
+ Performance counter stats for './loop':
+
+       2,05,92,675      cache-misses              #    4.021 % of all cache refs      (66.67%)
+      51,21,81,064      cache-references                                              (66.68%)
+      22,18,82,788      L1-dcache-load-misses     #    0.15% of all L1-dcache accesses  (66.68%)
+ 1,51,93,18,91,770      L1-dcache-loads                                               (66.66%)
+          2,33,108      LLC-load-misses           #    1.25% of all LL-cache accesses  (66.66%)
+       1,86,44,540      LLC-loads                                                     (66.66%)
+
+      28.885922743 seconds time elapsed
+
+      28.844713000 seconds user
+       0.008000000 seconds sys
+
+
+sujith@user-ares:~/gpt-2$ perf stat -e cache-misses,cache-references,L1-dcache-load-misses,L1-dcache-loads,LLC-load-misses,LLC-loads ./sample1
+Matrix multiplication completed in 40.8171 seconds.
+
+ Performance counter stats for './sample1':
+
+       2,63,29,638      cache-misses              #    0.554 % of all cache refs      (66.67%)
+    4,75,03,44,499      cache-references                                              (66.67%)
+    5,42,33,15,507      L1-dcache-load-misses     #    3.57% of all L1-dcache accesses  (66.67%)
+ 1,51,93,65,28,887      L1-dcache-loads                                               (66.67%)
+         75,09,692      LLC-load-misses           #    0.47% of all LL-cache accesses  (66.66%)
+    1,59,15,46,892      LLC-loads                                                     (66.66%)
+
+      40.848977056 seconds time elapsed
+
+      40.812626000 seconds user
+       0.011999000 seconds sys
